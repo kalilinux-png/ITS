@@ -1,16 +1,17 @@
 import datetime as dt
 import mysql.connector
+from creds import *
 
 class Database:
 
     def __init__(self) -> None:
         print("[INFO] Starting Connection With Database")
         self.mydb = mysql.connector.connect(
-        host="mysql-76243-0.cloudclusters.net",
-        user="leader",
-        password="password",
-        port=18905,
-        database='test')
+        host=host,
+        user=user,
+        password=password,
+        port=port,
+        database=database)
         self.mycursor = self.mydb.cursor(buffered=True)
         
     def get_fields(self,tablename):
@@ -51,6 +52,7 @@ class Database:
 
 if __name__=="__main__":
     db=Database()
+    db.custom_command("create database its")
     # print(db.custom_command("SELECT *  from PE  WHERE order_id is NOT NULL AND stop_loss_order_id is NOT NULL;"))
     # db.custom_update(f"order_id=\"this\",order=1","id=1")
     # print(db.custom_command("SELECT * from OrderTable WHERE id=1;"))
