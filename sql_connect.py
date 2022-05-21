@@ -14,16 +14,15 @@ class Database:
         database=database)
         self.mycursor = self.mydb.cursor(buffered=True)
         
-    def get_fields(self,tablename):
+    def get_fields(self):
         print("[INFO] Successfully Connected to Database")
-        self.mycursor.execute(f"SELECT * FROM {tablename}")
+        self.mycursor.execute(f"SELECT * FROM order_table")
         dataset=[] 
         for column in self.mycursor:
             # data=list(map(float,column[0:4]))
             # print(round(int(data[2]),-2))
             print(column)
-            id,time,strike,stoploss,exit,status,order_id,order_type,stop_loss_order_id,orderstatus=column[0],column[1],round(float(column[2]),-2),float(column[3]),column[4],column[5],column[6],column[7],column[8],column[9]
-            dataset.append({"id":id,"time":time,"stoploss":stoploss,"exit":exit,"status":status,"strike":strike,"order_type":order_type,"stop_loss_order_id":stop_loss_order_id,"order_id":order_id,"orderstatus":orderstatus})
+            dataset.append({"id":column[0],"time":column[1],"exchange":column[2],"stock_name":column[3],"order_price":column[4],"order_status":column[5],"order_id":column[6],"quantity":column[7],"order_type":column[8]})
         return dataset
     
     def update_orderstatus(self,tablename,id,orderstatus,token_no):
@@ -52,7 +51,8 @@ class Database:
 
 if __name__=="__main__":
     db=Database()
-    db.custom_command("create database its")
+    print(db.custom_command(" SELECT * from order_table ORDER BY id DESC LIMIT 1"))
+    # print(db.get_fields())
     # print(db.custom_command("SELECT *  from PE  WHERE order_id is NOT NULL AND stop_loss_order_id is NOT NULL;"))
     # db.custom_update(f"order_id=\"this\",order=1","id=1")
     # print(db.custom_command("SELECT * from OrderTable WHERE id=1;"))
