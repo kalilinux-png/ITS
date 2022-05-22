@@ -6,6 +6,8 @@ Independent Trading System Help Retails Traders to automate their day to day tra
 *  Create Sql Localhost or on server and required parameters in Config.py file 
 * Push Order According to the respective fields by your prefered Platforms
 * Run Main.py File 
+
+###  Inserting Order Into Database 
 ## Developer Guide Program WorkFlow 
 
 1. Read sql statement from sql database  in reverse order for latest first 

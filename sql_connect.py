@@ -3,7 +3,6 @@ import mysql.connector
 from creds import *
 
 class Database:
-
     def __init__(self) -> None:
         print("[INFO] Starting Connection With Database")
         self.mydb = mysql.connector.connect(
@@ -16,17 +15,16 @@ class Database:
         
     def get_fields(self):
         print("[INFO] Successfully Connected to Database")
-        self.mycursor.execute(f"SELECT * FROM order_table")
-        dataset=[] 
+        self.mycursor.execute(f"SELECT * from order_table ORDER BY id DESC LIMIT 1")
         for column in self.mycursor:
             # data=list(map(float,column[0:4]))
             # print(round(int(data[2]),-2))
             print(column)
-            dataset.append({"id":column[0],"time":column[1],"exchange":column[2],"stock_name":column[3],"order_price":column[4],"order_status":column[5],"order_id":column[6],"quantity":column[7],"order_type":column[8]})
-        return dataset
+            return {"id":column[0],"time":column[1],"exchange":column[2],"stock_name":column[3],"order_price":column[4],"order_status":column[5],"order_id":column[6],"quantity":column[7],"order_type":column[8]}
+       
     
-    def update_orderstatus(self,tablename,id,orderstatus,token_no):
-        sql=f"UPDATE {tablename} SET orderstatus='{orderstatus}',token_no={token_no} WHERE id={id};"
+    def update_orderstatus(self,table_id,order_status,order_id):
+        sql=f"UPDATE order_table  SET order_status='{order_status}',order_id={order_id} WHERE id={table_id};"
         print(sql)
         self.mycursor.execute(sql)
         self.mydb.commit()
