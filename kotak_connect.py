@@ -37,7 +37,7 @@ class kotak:
 
     def get_stock_code(self,exchange:str,stock_name:str):
         "Returns Stock Code For an Exchange"
-        # # # return requests.get(f"https://googleoauthentication.herokuapp.com/code/{exchange.lower()}/{stock_name.lower()}").json()
+        return int(requests.get(f"https://googleoauthentication.herokuapp.com/code/{exchange.lower()}/{stock_name.lower()}").json())
 
 
     def ltp(self, code):
@@ -98,6 +98,7 @@ class kotak:
 
 if __name__=="__main__":
    k=kotak()
-   code=k.get_stock_code('nSe','VeDL')
-   print(type(code))
-   k.client.quote(int(code))        
+   k.place_order('BUY',1909)
+#    code=k.get_stock_code('nSe','VeDL')
+#    print(type(code))
+#    k.client.quote(int(code))        

@@ -11,3 +11,7 @@ CREATE TABLE `order_table` (
   `order_type` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ; 
+
+error handeling , live testing , 
+
+insert into order_table (exchange,stock_name,order_price,,quantity,order_type) values "NSE","VEDL",0.0,73,"BUY"
