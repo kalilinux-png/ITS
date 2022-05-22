@@ -1,13 +1,13 @@
-# Independent Trading System 
+#  🙌 Independent Trading System 🙌
 
 Independent Trading System Help Retails Traders to automate their day to day trading with various kinds of brokers 
 
-## End users Guide 
-*  Create Sql Localhost or on server and required parameters in Config.py file 
+## End users Guide 👨
+*  Create Sql Localhost or on server and add required parameters in Config.py file 
 * Push Order According to the respective fields by your prefered Platforms
 * Run Main.py File which will continously check for new orders in database 
 
-###  Inserting Order Into Database 
+###  Inserting Order Into Database 🤵
 To Reduce The Extra Cost of Data Types Conversion we are following some convenction listed below make sure you enter it same as it to smootly run the program
 
 * Id : Int 
@@ -43,8 +43,8 @@ The ultimate aim of this project is to empower retail inverstor like you and few
 ## Developer Contact 👋
 
 <B> If you need some help in coding then contact me 
-  if you have an idea about algo trading but not sure how to do that then contact me 👇
-  Fell  Free To Contact 
+  if you have an idea about algo trading but not sure how to do that then contact me 
+  Fell  Free To Contact  Because I Love Metting New People  👇
 
 </p> 
 * ✍  Mail at : kalilinuxuser5@gmail.com 
