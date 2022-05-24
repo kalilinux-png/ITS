@@ -1,3 +1,4 @@
+import time
 from sql_connect import Database 
 from kotak_connect import kotak
 
@@ -14,9 +15,11 @@ def start():
             stock_code=kotk.get_stock_code(db_order['exchange'],db_order['stock_name'])
             try:
                 order_details = kotk.place_order(type=db_order['order_type'],instrument_token=stock_code,quantity=db_order['quantity']) # ,price=db_order['order_price']) # order details like order id , order status 
+
             except Exception as error:
                 print("Error",error)
             db.update_orderstatus(db_order['id'],db_order['id'],oid)
+            time.sleep(2)
             oid+=1
         else:
             print("No New Order")
