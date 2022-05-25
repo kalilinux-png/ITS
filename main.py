@@ -17,10 +17,10 @@ def start():
                 message=order_details['message']
                 orderId=order_details['orderId']
             except Exception as error:
-                print("Error",error)
-                message=error['fault']['message']
-                orderId=0
-            db.update_orderstatus(db_order['id'],message,orderId)
+                reason=error.reason
+                print("error message",error.reason)
+                orderId=-1
+            db.update_orderstatus(db_order['id'],reason,orderId)
             time.sleep(2)
         else:
             print("No New Order")

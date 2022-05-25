@@ -5,7 +5,7 @@ CREATE TABLE `order_table` (
   `exchange` varchar(45) DEFAULT NULL,
   `stock_name` varchar(45) DEFAULT NULL,
   `order_price` float,
-  `order_status` varchar(45) DEFAULT NULL,
+  `order_status` varchar(455) DEFAULT NULL,
   `order_id` BIGINT,
   `quantity` BIGINT,
   `order_type` varchar(45) DEFAULT NULL,

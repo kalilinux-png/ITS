@@ -15,7 +15,7 @@ To Reduce The Extra Cost of Data Types Conversion we are following some convenct
 * exchange : string 45 char 
 * stock_name : string 45 char
 * order_price : float 
-* order_status : string 45 char
+* order_status : string 455 char
 * order_id : int long 
 * quantity : int long
 * order_type : string 45 char 
